@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>เช็คลิสต์พยาบาล</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a1514;--c:#122322;--c2:#1a302e;--ink:#e6f2f0;--mu:#8fb0ac;--ln:#243f3c;--ac:#3fd0c9;--wn:#f2b544;--rd:#ff6b5e;--ok:#4fdca0;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="light"]{--bg:#eef5f4;--c:#fff;--c2:#f1f7f6;--ink:#12302f;--mu:#5d7573;--ln:#d3dfdd;--ac:#0b6e6e;--wn:#a86a0a;--rd:#c0392b;--ok:#2f855a;color-scheme:light}
+:root[data-theme="dark"]{--c2:#1a302e;--bg:#0e1b1b;--c:#162a29;--ink:#e3efed;--mu:#97b0ad;--ln:#2a4442;--ac:#4fc3c0;--wn:#e0a030;--rd:#ff7b6b;--ok:#5fd09a;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "IBM Plex Sans Thai",system-ui,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--ac);color:#fff}
+header b{font-size:18px}header span{opacity:.9;font-size:13px}main{max-width:980px;margin:0 auto;padding:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.card{background:var(--c);border:1px solid var(--ln);border-radius:10px;padding:12px;margin-bottom:10px}
+.bed{cursor:pointer;margin:0;border-left:6px solid var(--ln)}.bed.r{border-left-color:var(--rd)}.bed.w{border-left-color:var(--wn)}.bed.g{border-left-color:var(--ok)}
+.chip{display:inline-block;padding:1px 9px;border-radius:99px;font-size:12px;border:1px solid var(--ln);color:var(--mu)}
+.chip.r{background:var(--rd);color:#fff;border-color:var(--rd)}.chip.w{background:var(--wn);color:#fff;border-color:var(--wn)}.chip.g{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tabs{display:flex;gap:4px;overflow-x:auto;margin:10px 0}.tabs button{white-space:nowrap}
+button,input,select,textarea{font:inherit;color:var(--ink);background:var(--c);border:1px solid var(--ln);border-radius:7px;padding:6px 10px}
+button{cursor:pointer}button.p,.tabs .on{background:var(--ac);color:#fff;border-color:var(--ac)}button.d{color:var(--rd)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--ac);outline-offset:1px}
+.f{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0}.f input,.f select{width:auto;max-width:150px}
+.al{background:var(--c);border:1px solid var(--rd);border-radius:10px;padding:8px 12px;margin-bottom:10px;color:var(--rd)}
+.bar{height:6px;background:var(--ln);border-radius:4px;overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;background:var(--ok)}
+.row{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--ln)}
+h3{margin:4px 0 6px;font-size:16px}.mu{color:var(--mu);font-size:13px}label.k{display:flex;gap:8px;align-items:flex-start;padding:3px 0}
+textarea{width:100%;min-height:200px}.sc{overflow-x:auto}
+body{background:radial-gradient(800px 420px at 90% -5%,#3fd0c924,transparent),var(--bg);min-height:100vh}
+header{background:linear-gradient(120deg,var(--c),var(--c2));color:var(--ink);border-bottom:1px solid var(--ln)}header b{font-size:19px}header span{color:var(--ac);font-weight:600;opacity:1}
+.card{border-radius:16px;box-shadow:0 10px 28px #0003}button,input,select,textarea{background:var(--c2);border-radius:10px}button:hover{border-color:var(--ac)}
+button.p,.tabs .on{color:#06201f;font-weight:600}.chip.r,.chip.w,.chip.g{color:#06201f;font-weight:600}
+.nav{display:flex;gap:6px;margin-bottom:12px;align-items:center;flex-wrap:wrap}.nav button{border-radius:99px}.nav .on{background:var(--ac);color:#06201f;border-color:var(--ac);font-weight:600}
+.hero{padding:4px 2px 14px}.hero h1{margin:0;font-size:28px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:10px}.st{background:var(--c);border:1px solid var(--ln);border-radius:16px;padding:14px}.st b{display:block;font-size:32px;line-height:1.1}.st.r b{color:var(--rd)}.st.w b{color:var(--wn)}.st.g b{color:var(--ok)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px}.two .card{margin:0}
+.map{display:flex;flex-wrap:wrap;gap:8px}.bd{min-width:72px;padding:10px 8px;border-radius:12px;text-align:center;cursor:pointer;border:1px solid var(--ln);background:var(--c2)}.bd.g{background:#4fdca020;border-color:var(--ok)}.bd.w{background:#f2b54428;border-color:var(--wn)}.bd.r{background:#ff6b5e30;border-color:var(--rd)}
+.tl{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--ln);cursor:pointer}.tl time{min-width:64px;font-weight:600}details{padding:6px 0;border-bottom:1px solid var(--ln)}summary{cursor:pointer}
+</style></head><body>
+<header><b>เช็คลิสต์การทำงานพยาบาล</b><span id="sh"></span></header><main id="app"></main>
+<script>
+const $=i=>document.getElementById(i),esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let S={p:[],h:[]},U={v:'h',t:'dx'};
+try{S=JSON.parse(localStorage.getItem('nck1'))||S}catch(e){}
+const save=()=>{try{localStorage.setItem('nck1',JSON.stringify(S))}catch(e){}render()};
+const P=()=>S.p[U.v],val=i=>$(i).value.trim(),num=i=>parseFloat($(i).value);
+const DX={
+DM:['เบาหวาน (DM)',[['เสี่ยงน้ำตาลผิดปกติ',['ตรวจ DTX ตามแผน','ให้ยา/insulin ตามสั่ง','เฝ้าระวัง hypo/hyper']],['ขาดความรู้ดูแลตนเอง',['สอนอาหาร ยา ดูแลเท้า']]]],
+HT:['ความดันโลหิตสูง (HT)',[['เสี่ยงภาวะแทรกซ้อนจากความดันสูง',['วัด BP ตามแผน','ให้ยาลดความดันตามสั่ง','ถามปวดศีรษะ/ตามัว']],['ขาดความรู้เรื่องลดเค็ม/ยา',['สอนลดโซเดียมและกินยาสม่ำเสมอ']]]],
+HF:['หัวใจล้มเหลว (HF)',[['สารน้ำเกิน',['บันทึก I/O ชั่งน้ำหนักทุกวัน','จำกัดน้ำ/เกลือตามสั่ง','ฟังปอด ดูบวมกดบุ๋ม']],['แลกเปลี่ยนก๊าซลดลง',['จัดท่า Fowler','ให้ O2 ตามสั่ง ติดตาม SpO2']]]],
+COPD:['COPD',[['ระบายอากาศไม่มีประสิทธิภาพ',['พ่นยา/ให้ O2 ตามสั่ง','สอน pursed-lip breathing','ติดตาม SpO2 RR']],['เสี่ยงติดเชื้อทางเดินหายใจ',['กระตุ้นไอ/ดูดเสมหะเมื่อจำเป็น']]]],
+PNEU:['ปอดอักเสบ',[['แลกเปลี่ยนก๊าซบกพร่อง',['จัดท่าศีรษะสูง','ให้ O2 ติดตาม SpO2','ให้ยาปฏิชีวนะตรงเวลา']],['ไข้สูง/ขาดน้ำ',['วัดไข้ ลดไข้','ส่งเสริมดื่มน้ำ']]]],
+POP:['หลังผ่าตัด (Post-op)',[['ปวดแผลผ่าตัด',['ประเมิน pain score','ให้ยาแก้ปวดตามสั่ง']],['เสี่ยงติดเชื้อ/แผลแยก',['ทำแผล ดูสิ่งคัดหลั่ง','วัดไข้']],['เสี่ยงแทรกซ้อนจากการนอนนาน',['กระตุ้นหายใจลึก/ลุกเดินเร็ว','พลิกตัวทุก 2 ชม.']]]],
+SEP:['ติดเชื้อในกระแสเลือด (Sepsis)',[['เสี่ยงอวัยวะล้มเหลว',['ติดตาม V/S และ NEWS ถี่','ให้ยาปฏิชีวนะภายใน 1 ชม.','ติดตาม lactate/ปัสสาวะ']],['สารน้ำพร่อง',['ให้สารน้ำตามสั่ง','บันทึก I/O ทุกชม.']]]],
+SHK:['ภาวะช็อก (Shock)',[['เลือดไปเลี้ยงเนื้อเยื่อไม่พอ',['วัด BP/MAP ตามแผน','ปรับ vasopressor ตามสั่ง','ประเมิน CRT']],['สารน้ำพร่อง',['ให้สารน้ำ/เลือดตามสั่ง','บันทึกปัสสาวะรายชั่วโมง']]]],
+RF:['ระบบหายใจล้มเหลว',[['หายใจไม่มีประสิทธิภาพ',['ประเมิน RR SpO2 ABG','ดูแลทางเดินหายใจ/เครื่องช่วยหายใจ','ดูดเสมหะเมื่อจำเป็น']],['เสี่ยง VAP',['ยกศีรษะ 30-45°','ทำความสะอาดช่องปาก']]]],
+CKD:['ไตเรื้อรัง (CKD)',[['สารน้ำและอิเล็กโทรไลต์ไม่สมดุล',['บันทึก I/O ชั่งน้ำหนัก','ติดตาม K Cr','จำกัดน้ำ/โปแตสเซียมตามสั่ง']],['ขาดความรู้ดูแลตนเอง',['สอนอาหารและดูแลสายล้างไต']]]],
+STR:['หลอดเลือดสมอง (Stroke)',[['เลือดไปเลี้ยงสมองไม่พอ',['ประเมิน GCS/neuro sign ตามแผน','คุมความดันตามสั่ง','ยกศีรษะตามแผน']],['เสี่ยงสำลัก/ตกเตียง/แผลกดทับ',['ทดสอบการกลืนก่อนให้อาหาร','ยกไม้กั้นเตียง','พลิกตัวทุก 2 ชม.']]]]};
+const LR={K:[3.5,5,2.8,6.2,'mmol/L'],Na:[135,145,120,160,'mmol/L'],Cr:[.6,1.2,0,4,'mg/dL'],Hb:[12,16,7,20,'g/dL'],Glucose:[70,110,40,500,'mg/dL'],WBC:[4,11,1,30,'x10³/µL'],Plt:[150,400,50,1000,'x10³/µL'],INR:[.8,1.2,0,5,''],Lactate:[.5,2,0,4,'mmol/L']};
+const LS=['สั่งแล้ว','เจาะแล้ว','รอผล','ได้ผล'],LN=['เจาะเลือด','ส่งตัวอย่าง','บันทึกผล'];
+const mkND=k=>(DX[k]?DX[k][1]:[]).map(d=>({t:d[0],a:d[1].map(x=>({t:x,x:0}))}));
+function addP(b,n,a,w,k){S.p.push({b,n,a,w,k,nd:mkND(k),iv:[],lab:[],vs:[],io:[],dt:[],ln:[],tr:[],br:'',fl:'',ed:[0,0,0,0],note:''})}
+const nowL=(o=0)=>new Date(Date.now()+o*6e4-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,16);
+const tm=t=>new Date(t).toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'}),fm=m=>m>=60?(m/60|0)+' ชม. '+(m%60|0)+' นาที':(m|0)+' นาที';
+const shift=()=>{const h=new Date().getHours();return h>=16?'เวรบ่าย 16-24':h>=8?'เวรเช้า 08-16':'เวรดึก 00-08'};
+function news(v){let s=0;const{rr,sp,sb,hr,tp}=v;s+=rr<=8?3:rr<=11?1:rr<=20?0:rr<=24?2:3;s+=sp<=91?3:sp<=93?2:sp<=95?1:0;s+=v.o2?2:0;s+=sb<=90?3:sb<=100?2:sb<=110?1:sb<=219?0:3;s+=hr<=40?3:hr<=50?1:hr<=90?0:hr<=110?1:hr<=130?2:3;s+=v.av?3:0;s+=tp<=35?3:tp<=36?1:tp<=38?0:tp<=39?1:2;return s}
+const nc=s=>s>=7?'r':s>=5?'w':'g',lastVs=p=>p.vs[p.vs.length-1];
+function ivSt(i){if(i.done)return['เสร็จแล้ว','g'];const now=Date.now();if(i.ty==='med'){const m=(new Date(i.at)-now)/6e4;return m<0?['เกินเวลา '+fm(-m),'r']:m<=30?['อีก '+fm(m),'w']:['อีก '+fm(m),'']}
+const rem=(new Date(i.at).getTime()+i.vol/i.rate*36e5-now)/6e4;return rem<=0?['หมดแล้ว','r']:rem<=30?['เหลือ '+fm(rem),'w']:['เหลือ '+fm(rem),'']}
+const flag=(v,r)=>(r[2]>0&&v<r[2])||v>r[3]?'C':v<r[0]?'L':v>r[1]?'H':'';
+const lastRes=l=>l.h[l.h.length-1];
+function alerts(p){const a=[];p.iv.forEach(i=>{const s=ivSt(i);if(!i.done&&s[1])a.push(`เตียง ${p.b}: ${i.d} ${s[0]}`)});
+p.lab.forEach(l=>{const r=lastRes(l);if(r&&!r.rep&&flag(r.v,l.r)==='C')a.push(`เตียง ${p.b}: ${l.n} วิกฤต ${r.v} ยังไม่รายงานแพทย์`)});
+const v=lastVs(p);if(v&&news(v)>=5)a.push(`เตียง ${p.b}: NEWS ${news(v)}`);return a}
+const prog=p=>{let t=0,d=0;p.nd.forEach(n=>n.a.forEach(x=>{t++;d+=x.x}));return t?Math.round(d/t*100):0};
+const opts=o=>Object.keys(o).map(k=>`<option value="${k}">${esc(o[k][0])}</option>`).join('');
+const setV=i=>{U.v=i;U.t='dx';render()},setT=t=>{U.t=t;render()};
+function addPatient(){if(!val('nb'))return;addP(val('nb'),val('nn'),num('na')||'',num('nw')||'',$('nk').value);save()}
+function demo(){addP('1','นาย ก.',68,62,'PNEU');addP('2','นาง ข.',74,55,'HF');const a=S.p[0];
+a.iv.push({d:'NSS 1000 mL',ty:'fluid',vol:1000,rate:100,at:nowL(-570)},{d:'Ceftriaxone 2 g',ty:'med',dose:'2 g',at:nowL(20)});
+a.lab.push({n:'K',st:3,r:LR.K,h:[{t:Date.now()-864e5,v:4.1},{t:Date.now(),v:2.6}]});a.vs.push({t:Date.now(),tp:38.4,hr:104,rr:22,sb:108,sp:93,o2:1,av:0,gcs:15,pn:3});
+a.nd[0].a[0].x=1;save()}
+const delP=()=>{S.p.splice(U.v,1);U.v='b';save()},togA=(i,j)=>{P().nd[i].a[j].x^=1;save()};
+const delND=i=>{P().nd.splice(i,1);save()};
+function addSet(){const k=$('sk').value;mkND(k).forEach(n=>{if(!P().nd.some(m=>m.t===n.t))P().nd.push(n)});save()}
+function addCustomND(){if(val('cd'))P().nd.push({t:val('cd'),a:[{t:'วางแผน/ประเมินติดตาม',x:0}]});save()}
+function resetAll(){S.p.forEach(p=>{p.nd.forEach(n=>n.a.forEach(x=>x.x=0));p.tr=[]});save()}
+function addIV(){const ty=$('it').value,d=val('id');if(!d)return;const o={d,ty,at:$('ia').value};if(ty==='fluid'){o.vol=num('iv');o.rate=num('ir');if(!(o.vol>0&&o.rate>0))return}else o.dose=val('ido');P().iv.push(o);save()}
+const ivDone=i=>{P().iv[i].done=1;save()},ivDel=i=>{P().iv.splice(i,1);save()};
+function calc(){const v=num('c1'),h=num('c2'),f=num('c3'),d=num('c4'),w=num('c5'),c=num('c6');const mh=v/h;
+$('r1').textContent=mh>0?`${mh.toFixed(1)} mL/hr · ${(mh*f/60).toFixed(1)} หยด/นาที`:'-';
+const r=d*w*60/(c*1000);$('r2').textContent=r>0?`${r.toFixed(2)} mL/hr`:'-'}
+function addLab(){const n=val('ln');if(!n)return;const k=Object.keys(LR).find(x=>x.toLowerCase()===n.toLowerCase());let r=k?LR[k]:[num('lo')||0,num('hi')||1e9,0,1e9,''];
+let l=P().lab.find(x=>x.n.toLowerCase()===n.toLowerCase());if(!l)P().lab.push({n:k||n,st:0,r,h:[]});else l.st=0;save()}
+const labNext=i=>{P().lab[i].st++;save()},labDel=i=>{P().lab.splice(i,1);save()};
+function labRes(i){const v=num('lv'+i);if(isNaN(v))return;const l=P().lab[i];l.h.push({t:Date.now(),v});l.st=3;save()}
+const labRep=i=>{lastRes(P().lab[i]).rep=Date.now();save()};
+const labRe=i=>{P().lab[i].st=0;save()};
+function addVS(){const o={t:T0(),tp:num('v1'),hr:num('v2'),rr:num('v3'),sb:num('v4'),sp:num('v5'),o2:+$('v6').value,av:+$('v7').value,gcs:num('v8'),pn:num('v9')};
+if(['tp','hr','rr','sb','sp'].some(k=>isNaN(o[k])))return;P().vs.push(o);P().vs.sort((a,b)=>a.t-b.t);save()}
+function addIO(){const m=num('om');if(!(m>0))return;P().io.push({t:T0(),d:$('od').value,n:val('on')||'-',ml:m});save()}
+function addDt(){const v=num('dv');if(isNaN(v))return;P().dt.push({t:T0(),k:$('dk').value,v});save()}
+function addLn(){P().ln.push({n:$('lk').value,d:$('ld').value||nowL().slice(0,10)});save()}
+const turn=()=>{P().tr.push(Date.now());save()},setR=(k,v)=>{P()[k]=v},edT=i=>{P().ed[i]^=1;save()};
+function spark(h,r){if(h.length<2)return'';const vs=h.map(x=>x.v),mn=Math.min(...vs),mx=Math.max(...vs),d=mx-mn||1;
+const pts=vs.map((v,i)=>`${4+i*(112/(vs.length-1))},${26-(v-mn)/d*22}`).join(' ');return`<svg width="120" height="30" role="img" aria-label="แนวโน้ม"><polyline points="${pts}" fill="none" stroke="var(--ac)" stroke-width="2"/></svg>`}
+function brD(b){return b===''||isNaN(b)?'':b<=12?'เสี่ยงสูง':b<=14?'เสี่ยงปานกลาง':b<=18?'เสี่ยงเล็กน้อย':'ไม่เสี่ยง'}
+function frD(f){return f===''||isNaN(f)?'':f>=45?'เสี่ยงสูง':f>=25?'เสี่ยงปานกลาง':'เสี่ยงต่ำ'}
+function hoText(p){const v=lastVs(p),L=[];L.push(`เตียง ${p.b} ${p.n} อายุ ${p.a||'-'} น้ำหนัก ${p.w||'-'} kg | ${DX[p.k]?DX[p.k][0]:'-'}`);
+if(v)L.push(`V/S ล่าสุด ${tm(v.t)}: T ${v.tp} HR ${v.hr} RR ${v.rr} BP ${v.sb} SpO2 ${v.sp}${v.o2?' (O2)':''} GCS ${v.gcs||'-'} Pain ${v.pn||'-'} NEWS ${news(v)}`);
+L.push('ข้อวินิจฉัย: '+(p.nd.map(n=>n.t).join('; ')||'-'));const und=[];p.nd.forEach(n=>n.a.forEach(x=>{if(!x.x)und.push(x.t)}));L.push('กิจกรรมค้าง: '+(und.join('; ')||'ไม่มี'));
+const iv=p.iv.filter(i=>!i.done).map(i=>`${i.d} (${ivSt(i)[0]})`);L.push('IV ที่ยังเหลือ: '+(iv.join('; ')||'ไม่มี'));
+L.push('Lab: '+(p.lab.map(l=>{const r=lastRes(l);return l.n+' '+(r?r.v+(flag(r.v,l.r)?' ('+flag(r.v,l.r)+')':''):'') +' ['+LS[l.st]+']'}).join('; ')||'-'));
+const i=p.io.reduce((a,x)=>a+(x.d==='in'?x.ml:0),0),o=p.io.reduce((a,x)=>a+(x.d==='out'?x.ml:0),0);L.push(`I/O: เข้า ${i} ออก ${o} สมดุล ${i-o} mL`);
+L.push('สาย/ท่อ: '+(p.ln.map(l=>`${l.n} วันที่ ${Math.floor((Date.now()-new Date(l.d))/864e5)+1}`).join('; ')||'ไม่มี'));
+L.push(`ความเสี่ยง: Braden ${p.br||'-'} ${brD(p.br)} | Fall ${p.fl||'-'} ${frD(p.fl)}`);if(p.note)L.push('หมายเหตุ: '+p.note);return L.join('\n')}
+const copyHo=()=>{const t=$('hot');t.select();try{navigator.clipboard.writeText(t.value)}catch(e){document.execCommand('copy')}};
+const dlg=`<div class="f"><button class="p"`;
+function board(){const al=S.p.flatMap(alerts);let h=al.length?`<div class="al"><b>ต้องดูแลด่วน ${al.length} รายการ</b><br>${al.map(esc).join('<br>')}</div>`:'';
+h+=`<div class="grid">${S.p.map((p,i)=>{const v=lastVs(p),s=v?news(v):null,a=alerts(p).length;return`<div class="card bed ${a?'r':s>=5?'w':''}" tabindex="0" onclick="setV(${i})" onkeydown="if(event.key==='Enter')setV(${i})"><b>เตียง ${esc(p.b)}</b> ${esc(p.n)}<div class="mu">${esc(DX[p.k]?DX[p.k][0]:'')}</div><div class="bar"><i style="width:${prog(p)}%"></i></div><span class="chip">เช็คลิสต์ ${prog(p)}%</span> ${s!=null?`<span class="chip ${nc(s)}">NEWS ${s}</span>`:''} ${a?`<span class="chip r">เตือน ${a}</span>`:''}</div>`}).join('')}</div>`;
+if(!S.p.length)h+=`<div class="card">ยังไม่มีผู้ป่วย เพิ่มเตียงด้านล่าง หรือ <button onclick="demo()">โหลดข้อมูลตัวอย่าง</button></div>`;
+h+=`<div class="card"><h3>เพิ่มผู้ป่วย</h3><p class="mu">ใช้เลขเตียงและชื่อย่อเท่านั้น ไม่ควรใส่ข้อมูลระบุตัวผู้ป่วยจริง ข้อมูลเก็บในเบราว์เซอร์เครื่องนี้</p><div class="f"><input id="nb" placeholder="เลขเตียง" size="6"><input id="nn" placeholder="ชื่อย่อ"><input id="na" type="number" placeholder="อายุ" style="width:80px"><input id="nw" type="number" placeholder="นน. kg" style="width:90px"><select id="nk">${opts(DX)}</select><button class="p" onclick="addPatient()">เพิ่ม</button></div></div>`;return h}
+function tDx(p){let h=p.nd.map((n,i)=>`<div class="card"><div class="row"><b>${esc(n.t)}</b><button class="d" onclick="delND(${i})" aria-label="ลบ">ลบ</button></div>${n.a.map((x,j)=>`<label class="k"><input type="checkbox" ${x.x?'checked':''} onchange="togA(${i},${j})">${esc(x.t)}</label>`).join('')}</div>`).join('');
+return h+`<div class="card"><div class="f"><select id="sk">${opts(DX)}</select><button onclick="addSet()">เพิ่มชุดข้อวินิจฉัยตามโรค</button></div><div class="f"><input id="cd" placeholder="ข้อวินิจฉัยอื่น ๆ"><button onclick="addCustomND()">เพิ่ม</button></div><p class="mu">ชุดข้อวินิจฉัยเป็นตัวอย่างเริ่มต้น ควรปรับให้เหมาะกับผู้ป่วยแต่ละรายตามดุลยพินิจทางการพยาบาล</p></div>`}
+function tIv(p){let h=`<div class="card"><h3>รายการยา/สารน้ำ IV</h3>${p.iv.map((x,i)=>{const s=ivSt(x);return`<div class="row"><div>${esc(x.d)} <span class="mu">${x.ty==='med'?'ยาฉีด '+esc(x.dose||''):x.vol+' mL @ '+x.rate+' mL/hr'} · ${x.ty==='med'?'เวลา':'เริ่ม'} ${tm(x.at)}</span></div><div><span class="chip ${s[1]}">${s[0]}</span> ${x.done?'':`<button onclick="ivDone(${i})">${x.ty==='med'?'ให้แล้ว':'หมดแล้ว'}</button>`}<button onclick="edIV(${i})">แก้ไข</button> <button class="d" onclick="ivDel(${i})">ลบ</button></div></div>`}).join('')||'<p class="mu">ยังไม่มีรายการ</p>'}
+<div class="f"><input id="id" placeholder="ชื่อยา/สารน้ำ"><select id="it"><option value="fluid">สารน้ำ</option><option value="med">ยาฉีด IV</option></select><input id="iv" type="number" placeholder="mL" style="width:80px"><input id="ir" type="number" placeholder="mL/hr" style="width:90px"><input id="ido" placeholder="ขนาดยา" style="width:100px"><input id="ia" type="datetime-local" value="${nowL()}"><button class="p" onclick="addIV()">เพิ่ม</button></div><p class="mu">สารน้ำใส่ปริมาตรและอัตรา ยาฉีดใส่ขนาดและเวลาให้ยา ระบบเตือนเมื่อเหลือ 30 นาที</p></div>
+<div class="card" oninput="calc()"><h3>เครื่องคำนวณ</h3><div class="f">ปริมาตร<input id="c1" type="number" placeholder="mL" style="width:80px">ใน<input id="c2" type="number" placeholder="ชม." style="width:70px"><select id="c3"><option value="20">20 หยด/mL</option><option value="60">60 หยด/mL</option><option value="15">15 หยด/mL</option></select></div><b id="r1">-</b>
+<div class="f">ขนาด<input id="c4" type="number" step="any" placeholder="mcg/kg/min" style="width:110px">น้ำหนัก<input id="c5" type="number" value="${p.w||''}" style="width:70px">ความเข้มข้น<input id="c6" type="number" step="any" placeholder="mg/mL" style="width:90px"></div><b id="r2">-</b></div>`;return h}
+function tLab(p){return`<div class="card"><div class="f"><input id="ln" list="ll" placeholder="ชื่อ Lab"><datalist id="ll">${Object.keys(LR).map(k=>`<option value="${k}">`).join('')}</datalist><input id="lo" type="number" step="any" placeholder="ต่ำสุดปกติ" style="width:100px"><input id="hi" type="number" step="any" placeholder="สูงสุดปกติ" style="width:100px"><button class="p" onclick="addLab()">สั่ง Lab</button></div><p class="mu">Lab ที่มีในรายการใช้ช่วงอ้างอิงและค่าวิกฤตอัตโนมัติ ถ้าสั่งชื่อเดิมซ้ำจะติดตามต่อในกราฟเดียวกัน</p></div>`+p.lab.map((l,i)=>{const r=lastRes(l),f=r?flag(r.v,l.r):'';return`<div class="card"><div class="row"><b>${esc(l.n)}</b><span class="chip ${l.st===3?'g':'w'}">${LS[l.st]}</span><button class="d" onclick="labDel(${i})">ลบ</button></div><div class="f">${l.st<2?`<button onclick="labNext(${i})">${LN[l.st]}</button>`:l.st===2?`<input id="lv${i}" type="number" step="any" placeholder="ผล ${esc(l.r[4])}" style="width:100px"><button class="p" onclick="labRes(${i})">${LN[2]}</button>`:`<button onclick="labRe(${i})">สั่งซ้ำ</button>`}</div>${r?`<div class="f"><b>${r.v} ${esc(l.r[4])}</b> ${f?`<span class="chip ${f==='C'?'r':'w'}">${f==='C'?'วิกฤต':f==='H'?'สูง':'ต่ำ'}</span>`:'<span class="chip g">ปกติ</span>'} ${spark(l.h,l.r)} <span class="mu">${tm(r.t)}</span><button onclick="edLab(${i})">แก้ค่า</button></div>${f==='C'?(r.rep?`<span class="chip g">รายงานแพทย์ ${tm(r.rep)}</span>`:`<button class="d" onclick="labRep(${i})">บันทึกเวลารายงานแพทย์</button>`):''}`:''}</div>`}).join('')}
+function tAct(p){const v=lastVs(p),tot=(d)=>p.io.filter(x=>x.d===d).reduce((a,x)=>a+x.ml,0),ED=['ยา/การใช้ยา','อาหารและน้ำ','ป้องกันตกเตียง/กดทับ','อาการที่ต้องแจ้งพยาบาล'],lt=p.tr[p.tr.length-1];
+const n=(id,ph)=>`<input id="${id}" type="number" step="any" placeholder="${ph}" style="width:78px">`;
+return`<div class="card"><h3>V/S · GCS · Pain</h3><div class="f">${n('v1','T °C')}${n('v2','HR')}${n('v3','RR')}${n('v4','SBP')}${n('v5','SpO2')}${n('v8','GCS')}${n('v9','Pain 0-10')}<select id="v6"><option value="0">Room air</option><option value="1">ได้ O2</option></select><select id="v7"><option value="0">รู้ตัวดี</option><option value="1">สับสน/V/P/U</option></select><button class="p" onclick="addVS()">บันทึก</button></div>${p.vs.map((x,i)=>[x,i]).slice(-3).reverse().map(([x,i])=>`<div class="row"><span>${tm(x.t)} T ${x.tp} HR ${x.hr} RR ${x.rr} BP ${x.sb} SpO2 ${x.sp} GCS ${x.gcs||'-'} Pain ${x.pn||'-'}</span><span class="chip ${nc(news(x))}">NEWS ${news(x)}</span> ${eb('edVS',i,'vs')}</div>`).join('')}<p class="mu">NEWS2: 0-4 ต่ำ, 5-6 กลาง (แจ้งแพทย์), 7 ขึ้นไปสูง (ด่วน)</p></div>
+<div class="card"><h3>I/O · DTX · น้ำหนัก</h3><div class="f"><select id="od"><option value="in">เข้า</option><option value="out">ออก</option></select><input id="on" placeholder="รายการ" style="width:120px">${n('om','mL')}<button onclick="addIO()">บันทึก I/O</button></div><b>เข้า ${tot('in')} · ออก ${tot('out')} · สมดุล ${tot('in')-tot('out')} mL</b>${p.io.map((x,i)=>[x,i]).slice(-4).reverse().map(([x,i])=>`<div class="row"><span>${tm(x.t)} ${x.d==='in'?'เข้า':'ออก'} ${esc(x.n)} ${x.ml} mL</span><span>${eb('edIO',i,'io')}</span></div>`).join('')}
+<div class="f"><select id="dk"><option>DTX mg/dL</option><option>น้ำหนัก kg</option></select>${n('dv','ค่า')}<button onclick="addDt()">บันทึก</button></div>${p.dt.map((x,i)=>[x,i]).slice(-3).reverse().map(([x,i])=>`<div class="row"><span>${tm(x.t)} ${esc(x.k)} ${x.v}</span><span>${eb('edDt',i,'dt')}</span></div>`).join('')}</div>
+<div class="card"><h3>แผล · ท่อ · สายระบาย</h3>${p.ln.map((l,i)=>`<div class="row"><span>${esc(l.n)} วันที่ ${Math.floor((Date.now()-new Date(l.d))/864e5)+1} <span class="mu">(ใส่/เปลี่ยน ${esc(l.d)})</span></span><span><button onclick="edLn(${i})">แก้ไข</button> <button class="d" onclick="rm('ln',${i})">ถอด</button></span></div>`).join('')}<div class="f"><select id="lk"><option>Foley</option><option>NG tube</option><option>ICD</option><option>Drain</option><option>CVC</option><option>ETT</option><option>แผลผ่าตัด</option></select><input id="ld" type="date" value="${nowL().slice(0,10)}"><button onclick="addLn()">เพิ่ม</button></div></div>
+<div class="card"><h3>ความเสี่ยง · พลิกตัว · ให้คำแนะนำ</h3><div class="f">Braden<input type="number" value="${p.br}" onchange="setR('br',this.value===''?'':+this.value);save()" style="width:70px"> <span class="mu">${brD(p.br)}</span> Fall<input type="number" value="${p.fl}" onchange="setR('fl',this.value===''?'':+this.value);save()" style="width:70px"> <span class="mu">${frD(p.fl)}</span></div>
+<div class="f"><button onclick="turn()">พลิกตัวแล้ว</button><span class="mu">${lt?'ล่าสุด '+tm(lt)+(Date.now()-lt>72e5?' · เกิน 2 ชม. แล้ว':''):'ยังไม่ได้พลิกตัวในเวรนี้'}</span></div>${ED.map((e,i)=>`<label class="k"><input type="checkbox" ${p.ed[i]?'checked':''} onchange="edT(${i})">ให้คำแนะนำ: ${e}</label>`).join('')}</div>`}
+function tHo(p){return`<div class="card"><h3>สรุปส่งเวร</h3><textarea id="hot" readonly>${esc(hoText(p))}</textarea><div class="f"><button class="p" onclick="copyHo()">คัดลอก</button></div><input style="width:100%" placeholder="หมายเหตุเพิ่มเติม" value="${esc(p.note)}" onchange="setR('note',this.value);save()"></div>`}
+function detail(){const p=P();if(!p){U.v='b';return board()}const T={dx:['ข้อวินิจฉัย',tDx],iv:['ยา IV',tIv],lab:['Lab',tLab],act:['กิจกรรม',tAct],ho:['ส่งเวร',tHo]},al=alerts(p);
+return`<div class="f"><button onclick="setV('b')">กลับหน้ารวม</button><b>เตียง ${esc(p.b)} ${esc(p.n)}</b><span class="mu">${p.a?p.a+' ปี ':''}${p.w?p.w+' kg · ':''}${esc(DX[p.k]?DX[p.k][0]:'')}</span><button class="d" onclick="delP()">จำหน่าย/ลบ</button></div>${al.length?`<div class="al">${al.map(esc).join('<br>')}</div>`:''}<div class="tabs">${Object.keys(T).map(k=>`<button class="${U.t===k?'on':''}" onclick="setT('${k}')">${T[k][0]}</button>`).join('')}</div>${T[U.t][1](p)}`}
+const fill=o=>{for(const k in o){const e=$(k);if(e)e.value=o[k]}},T0=()=>{const t=U.kt||Date.now();U.kt=0;return t},rm=(k,i)=>{P()[k].splice(i,1);save()},eb=(f,i,k)=>`<button onclick="${f}(${i})">แก้ไข</button> <button class="d" onclick="rm('${k}',${i})">ลบ</button>`;
+function ed(k,i,m){const x=P()[k].splice(i,1)[0];U.kt=x.t;save();fill(m(x))}
+const edIV=i=>{const x=P().iv.splice(i,1)[0];save();fill({id:x.d,it:x.ty,iv:x.vol||'',ir:x.rate||'',ido:x.dose||'',ia:x.at})},
+edVS=i=>ed('vs',i,x=>({v1:x.tp,v2:x.hr,v3:x.rr,v4:x.sb,v5:x.sp,v6:x.o2,v7:x.av,v8:x.gcs||'',v9:x.pn||''})),
+edIO=i=>ed('io',i,x=>({od:x.d,on:x.n,om:x.ml})),edDt=i=>ed('dt',i,x=>({dk:x.k,dv:x.v})),
+edLn=i=>{const x=P().ln.splice(i,1)[0];save();fill({lk:x.n,ld:x.d})},
+edLab=i=>{const l=P().lab[i],r=l.h.pop();l.st=2;save();fill({['lv'+i]:r.v})};
+function closeShift(){S.h=(S.h||[]).concat([{t:Date.now(),sh:shift(),p:S.p.map(p=>({b:p.b,n:p.n,g:prog(p),u:p.nd.flatMap(n=>n.a.filter(x=>!x.x).map(x=>x.t)),s:lastVs(p)?news(lastVs(p)):null}))}]).slice(-30);U.v='h';resetAll()}
+function tasks(){const a=[],n=Date.now();S.p.forEach((p,i)=>{p.iv.forEach(x=>{if(x.done)return;const t=new Date(x.at).getTime()+(x.ty==='med'?0:x.vol/x.rate*36e5);a.push({i,t,x:`${x.ty==='med'?'ให้ยา':'สารน้ำหมด'} ${x.d}`,c:ivSt(x)[1],b:p.b})});
+p.lab.forEach(l=>{if(l.st<3)a.push({i,t:n,x:`Lab ${l.n}: ${LS[l.st]}`,c:'w',b:p.b})});const lt=p.tr[p.tr.length-1];a.push({i,t:lt?lt+72e5:n,x:'พลิกตัว q2h',c:lt&&lt+72e5>n?'':'w',b:p.b})});return a.filter(y=>y.t-n<72e5).sort((a,b)=>a.t-b.t)}
+const carry=()=>S.p.map((p,i)=>{const u=p.nd.flatMap(n=>n.a.filter(x=>!x.x).map(x=>x.t)),v=[...p.iv.filter(x=>!x.done).map(x=>x.d+' ('+ivSt(x)[0]+')'),...p.lab.filter(l=>l.st<3).map(l=>'Lab '+l.n+' '+LS[l.st])];return u.length||v.length?`<div class="row" style="cursor:pointer" onclick="setV(${i})"><span><b>เตียง ${esc(p.b)}</b> <span class="mu">${esc(u.concat(v).join(' · '))}</span></span></div>`:''}).join('');
+function home(){const n=S.p.length,avg=n?Math.round(S.p.reduce((a,p)=>a+prog(p),0)/n):0,al=S.p.flatMap(alerts).length,tk=tasks(),cy=carry(),d=new Date().toLocaleDateString('th-TH',{weekday:'long',day:'numeric',month:'long'});
+return`<div class="hero"><h1>${shift()}</h1><span class="mu">${d}</span></div>${n?'':'<div class="card">ยังไม่มีผู้ป่วย <button class="p" onclick="demo()">โหลดข้อมูลตัวอย่าง</button> หรือเพิ่มที่แท็บเตียงทั้งหมด</div>'}
+<div class="stats"><div class="st"><span class="mu">ผู้ป่วย</span><b>${n}</b></div><div class="st ${avg>=80?'g':avg>=40?'w':''}"><span class="mu">เช็คลิสต์เสร็จ</span><b>${avg}%</b></div><div class="st ${al?'r':'g'}"><span class="mu">เตือนด่วน</span><b>${al}</b></div><div class="st"><span class="mu">งานใน 2 ชม.</span><b>${tk.length}</b></div></div>
+<div class="two"><div class="card"><h3>งานที่ใกล้ถึงเวลา</h3>${tk.map(y=>`<div class="tl" onclick="setV(${y.i})"><time>${y.t<=Date.now()?'ตอนนี้':tm(y.t)}</time><span class="chip ${y.c}">เตียง ${esc(y.b)}</span><span>${esc(y.x)}</span></div>`).join('')||'<p class="mu">ไม่มีงานเร่งด่วน</p>'}</div>
+<div class="card"><h3>แผนผังเตียงตามความเสี่ยง</h3><div class="map">${S.p.map((p,i)=>{const v=lastVs(p),s=v?news(v):null;return`<div class="bd ${s==null?'':nc(s)}" onclick="setV(${i})"><b>${esc(p.b)}</b><div class="mu">${s==null?'ยังไม่วัด':'NEWS '+s}</div></div>`}).join('')||'<p class="mu">ยังไม่มีผู้ป่วย</p>'}</div></div></div>
+<div class="card"><h3>งานค้างส่งต่อเวรถัดไป</h3>${cy||'<p class="mu">ไม่มีงานค้าง</p>'}<div class="f"><button class="p" onclick="closeShift()">ปิดเวรและเก็บประวัติ</button><span class="mu">เก็บสรุปเวรนี้ไว้ แล้วรีเซ็ตเช็คลิสต์สำหรับเวรถัดไป</span></div></div>
+<div class="card"><h3>ประวัติเวร</h3>${(S.h||[]).slice().reverse().slice(0,8).map(q=>`<details><summary>${new Date(q.t).toLocaleString('th-TH',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})} ${esc(q.sh)} · ${q.p.length} เตียง · เฉลี่ย ${q.p.length?Math.round(q.p.reduce((a,x)=>a+x.g,0)/q.p.length):0}%</summary>${q.p.map(x=>`<div class="mu">เตียง ${esc(x.b)} ${esc(x.n)} · เช็คลิสต์ ${x.g}%${x.s!=null?' · NEWS '+x.s:''}${x.u.length?' · ค้าง: '+esc(x.u.join('; ')):''}</div>`).join('')}</details>`).join('')||'<p class="mu">ยังไม่มีประวัติ</p>'}</div>`}
+const nav=()=>`<div class="nav"><button class="${U.v==='h'?'on':''}" onclick="setV('h')">หน้าแรก</button><button class="${U.v==='b'?'on':''}" onclick="setV('b')">เตียงทั้งหมด</button><button style="margin-left:auto" onclick="const r=document.documentElement;r.dataset.theme=r.dataset.theme==='light'?'dark':'light'">สลับโหมดสว่าง/มืด</button></div>`;
+function render(){$('sh').textContent=shift();$('app').innerHTML=nav()+(U.v==='h'?home():U.v==='b'?board():detail())}
+render();setInterval(()=>{const a=document.activeElement;if(!a||!/INPUT|SELECT|TEXTAREA/.test(a.tagName))render()},3e4);
+</script></body></html>
